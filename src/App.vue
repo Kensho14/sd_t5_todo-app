@@ -45,7 +45,15 @@ export default {
         title: 'OS',
         desc: 'ex1.11',
       },
+      {
+        color: '#1F7087',
+        title: 'test',
+        desc: 'testtest'
+      }
     ],
   }),
+  mounted(){
+    this.$store.commit('setTasks', tasks);
+  }
 };
 </script>
