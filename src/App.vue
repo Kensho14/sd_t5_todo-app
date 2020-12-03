@@ -25,17 +25,22 @@
 
 <script>
 import TaskCard from './components/TaskCard';
+//import SubjectCard from './components/SubjectCard';
 
 export default {
   name: 'App',
 
   components: {
     TaskCard,
+    //SubjectCard,
   },
 
   computed: {
     tasks() {
       return this.$store.state.tasks  
+    },
+    subject() {
+      return this.$store.state.subject
     }
   }
 
