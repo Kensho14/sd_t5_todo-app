@@ -11,6 +11,16 @@
 
     <v-main>
       <v-row dense>
+        <v-col>
+          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力">
+          </v-text-field>
+          <v-text-field v-if="isClicked" label="タスク詳細">
+          </v-text-field>
+          <v-select　v-if="isClicked"
+            label="科目を選択"
+          ></v-select>
+          <v-btn v-if="isClicked">登録</v-btn>
+        </v-col>
         <v-col
           v-for="(item, i) in tasks"
           :key="i"
@@ -34,6 +44,7 @@ export default {
   },
 
   data: () => ({
+    isClicked: false,
     tasks: [
       {
         color: '#1F7087',
@@ -47,5 +58,10 @@ export default {
       },
     ],
   }),
+  methods: {
+    mouseClickHandler(){
+      this.isClicked = true
+    },
+  }
 };
 </script>
