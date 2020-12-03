@@ -33,19 +33,11 @@ export default {
     TaskCard,
   },
 
-  data: () => ({
-    tasks: [
-      {
-        color: '#1F7087',
-        title: 'ソフトウェア開発演習',
-        desc: 'vue.jsを使いこなす。',
-      },
-      {
-        color: '#952175',
-        title: 'OS',
-        desc: 'ex1.11',
-      },
-    ],
-  }),
+  computed: {
+    tasks() {
+      return this.$store.state.tasks  
+    }
+  }
+
 };
 </script>
