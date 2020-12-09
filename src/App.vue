@@ -56,6 +56,8 @@ export default {
         title: this.inputTitle,
         desc: this.inputDetail
       })
+      this.inputTitle='',
+      this.inputDetail=''
     },
   },
   computed: {
