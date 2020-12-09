@@ -12,14 +12,14 @@
     <v-main>
       <v-row dense>
         <v-col>
-          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力">
+          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" ref="inputTitle">
           </v-text-field>
-          <v-text-field v-if="isClicked" label="タスク詳細">
+          <v-text-field v-if="isClicked" label="タスク詳細" ref="inputDetail">
           </v-text-field>
           <v-select　v-if="isClicked"
             label="科目を選択"
           ></v-select>
-          <v-btn v-if="isClicked">登録</v-btn>
+          <v-btn v-if="isClicked" v-on:click="addTasks">登録</v-btn>
         </v-col>
         <v-col
           v-for="(item, i) in tasks"
@@ -49,6 +49,15 @@ export default {
   methods: {
     mouseClickHandler(){
       this.isClicked = true
+    },
+    addTasks() {
+      var inputTitle = this.$refs.inputTitle
+      var inputDetail = this.$refs.inputDetail
+      this.tasks.push({
+        color: '#1F7087',
+        title: inputTitle.title,
+        desc: inputDetail.desc
+      })
     },
   },
   computed: {
