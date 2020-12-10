@@ -16,6 +16,9 @@ export default new Vuex.Store({
   mutations: {
     setTasks(state, taskList){
       state.tasks = taseList;
+    },
+    addTask(state, task){
+      state.tasks.push(task);
     }
   },
   actions: {

@@ -38,26 +38,26 @@ import TaskCard from './components/TaskCard';
 
 export default {
   name: 'App',
-
   components: {
     TaskCard,
   },
-
   data: () => ({
     isClicked: false,
+    inputTitle: '',
+    inputDetail: '',
   }),
   methods: {
     mouseClickHandler(){
       this.isClicked = true
     },
     addTasks() {
-      this.tasks.push({
+      this.$store.commit('addTask', {
         color: '#1F7087',
         title: this.inputTitle,
         desc: this.inputDetail
-      })
-      this.inputTitle='',
-      this.inputDetail=''
+      });
+      this.inputTitle = '';
+      this.inputDetail = '';
     },
   },
   computed: {
@@ -65,6 +65,5 @@ export default {
       return this.$store.state.tasks  
     }
   },
-
 };
 </script>
