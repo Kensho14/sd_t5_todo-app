@@ -29,6 +29,9 @@ export default new Vuex.Store({
     },
     setSubject(state, subjectList){
       state.subject = subjectList;
+    },
+    addTask(state, task){
+      state.tasks.push(task);
     }
   },
   actions: {
