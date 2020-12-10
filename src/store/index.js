@@ -5,11 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tasks: []
+    tasks: [
+      {
+        color: '#1F7087',
+        title: 'ソフトウェア開発演習',
+        desc: 'vue.jsを使いこなす。',
+      }
+    ]
   },
   mutations: {
     setTasks(state, taskList){
-      state.tasks = taskList;
+      state.tasks = taseList;
+    },
+    addTask(state, task){
+      state.tasks.push(task);
     }
   },
   actions: {
