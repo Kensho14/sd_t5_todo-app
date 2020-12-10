@@ -11,6 +11,16 @@
 
     <v-main>
       <v-row dense>
+        <v-col>
+          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle">
+          </v-text-field>
+          <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail">
+          </v-text-field>
+          <v-select　v-if="isClicked"
+            label="科目を選択"
+          ></v-select>
+          <v-btn v-if="isClicked" v-on:click="addTasks">登録</v-btn>
+        </v-col>
         <v-col
           v-for="(item, i) in tasks"
           :key="i"
@@ -28,16 +38,32 @@ import TaskCard from './components/TaskCard';
 
 export default {
   name: 'App',
-
   components: {
     TaskCard,
   },
-
+  data: () => ({
+    isClicked: false,
+    inputTitle: '',
+    inputDetail: '',
+  }),
+  methods: {
+    mouseClickHandler(){
+      this.isClicked = true
+    },
+    addTasks() {
+      this.$store.commit('addTask', {
+        color: '#1F7087',
+        title: this.inputTitle,
+        desc: this.inputDetail
+      });
+      this.inputTitle = '';
+      this.inputDetail = '';
+    },
+  },
   computed: {
     tasks() {
       return this.$store.state.tasks  
     }
-  }
-
+  },
 };
 </script>
