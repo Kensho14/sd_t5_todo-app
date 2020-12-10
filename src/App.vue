@@ -5,12 +5,54 @@
       color="primary"
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-on:click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title>ToDo</v-toolbar-title>
+      
     </v-app-bar>
 
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      ><v-list-item-group
+          v-model="group"
+          active-class="primary--text text--accent-4"
+        >
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Subject</v-list-item-title>
+          </v-list-item>
+
+        </v-list-item-group>
+
+      </v-list>
+    </v-navigation-drawer>
+    
     <v-main>
       <v-row dense>
+        <v-col>
+          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力">
+          </v-text-field>
+          <v-text-field v-if="isClicked" label="タスク詳細">
+          </v-text-field>
+          <v-select　v-if="isClicked"
+            label="科目を選択"
+          ></v-select>
+          <v-btn v-if="isClicked">登録</v-btn>
+        </v-col>
         <v-col
           v-for="(item, i) in tasks"
           :key="i"
@@ -33,6 +75,17 @@ export default {
   components: {
     TaskCard,
     //SubjectCard,
+  },
+
+  data: () => ({
+    isClicked: false,
+    drawer: false,
+    group: null,
+  }),
+  methods: {
+    mouseClickHandler(){
+      this.isClicked = true
+    },
   },
 
   computed: {
