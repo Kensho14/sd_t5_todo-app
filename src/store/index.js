@@ -12,15 +12,12 @@ export default new Vuex.Store({
         desc: 'vue.jsを使いこなす。',
       }
     ],
-    subject: [
-      /*
+    subjectList: [
       {
         color: '#1F7087',
         name: 'OS',
         youbi: 2  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
-        desc: '課題2.2をやる',
       }
-      */
     ]
   },
   mutations: {
@@ -32,6 +29,9 @@ export default new Vuex.Store({
     },
     addTask(state, task){
       state.tasks.push(task);
+    },
+    addSubject(state, subject){
+      state.subjectList.push(subject);
     }
   },
   actions: {

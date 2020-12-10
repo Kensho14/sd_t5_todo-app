@@ -44,12 +44,13 @@
     <v-main>
       <v-row dense>
         <v-col>
-          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle">
+          <v-text-field v-on:click="mouseClickHandler" label="教科名を入力" v-model="inputName">
           </v-text-field>
-          <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail">
+          <v-text-field v-if="isClicked" label="曜日" v-model="inputYoubi">
           </v-text-field>
           <v-select　v-if="isClicked"
-            label="科目を選択"
+            label="曜日を選択"
+            
           ></v-select>
           <v-btn v-if="isClicked" v-on:click="addTasks">登録</v-btn>
         </v-col>
@@ -80,29 +81,26 @@ export default {
     isClicked: false,
     drawer: false,
     group: null,
-    inputTitle: '',
-    inputDetail: '',
+    inputName: '',
+    inputYoubi: 0,
   }),
   methods: {
     mouseClickHandler(){
       this.isClicked = true
     },
-    addTasks() {
-      this.$store.commit('addTask', {
+    addSubject() {
+      this.$store.commit('addSubject', {
         color: '#1F7087',
-        title: this.inputTitle,
-        desc: this.inputDetail
+        name: this.inputName,
+        youbi: this.inputYoubi
       });
       this.inputTitle = '';
-      this.inputDetail = '';
+      this.inputYoubi = 0;
     },
   },
   computed: {
-    tasks() {
-      return this.$store.state.tasks  
-    },
     subject() {
-      return this.$store.state.subject
+      return this.$store.state.subjectList
     }
   },
 };
