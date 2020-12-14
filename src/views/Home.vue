@@ -40,7 +40,7 @@ export default {
       this.isClicked = true
     },
     addTasks() {
-      this.$store.commit('addTask', {
+      this.$store.dispatch('addTask', {
         color: '#1F7087',
         title: this.inputTitle,
         desc: this.inputDetail

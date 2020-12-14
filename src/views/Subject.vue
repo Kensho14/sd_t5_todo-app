@@ -40,7 +40,7 @@ export default {
       this.isClicked = true
     },
     addSubject() {
-      this.$store.commit('addSubject', {
+      this.$store.dispatch('addSubject', {
         color: '#1F7087',
         name: this.inputName,
         youbi: this.inputYoubi
