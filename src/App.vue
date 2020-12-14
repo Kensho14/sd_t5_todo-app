@@ -53,5 +53,8 @@ export default {
       this.$router.push({path: path});
     }
   },
+  mounted() {
+    this.$store.dispatch('loadStates');
+  },
 };
 </script>
