@@ -1,7 +1,7 @@
 <template>
   <v-card :color="color" dark>
-    <v-card-title class="headline" v-text="title"></v-card-title>
-    {{ description }}
+    <v-card-title class="headline" v-text="name"></v-card-title>
+    {{ youbi }}
     <v-card-actions>
       <v-btn>Edit</v-btn>
       <v-btn>Done</v-btn>
@@ -13,10 +13,8 @@
 export default {
   props: {
     color: String,
-    subject: String,
-    description: String,
-    youbi: String,
-    youbiNumber: Number
+    name: String,
+    youbi: Number,
   }
 }
 </script>
