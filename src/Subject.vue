@@ -49,8 +49,9 @@
           <v-text-field v-if="isClicked" label="曜日" v-model="inputYoubi">
           </v-text-field>
           <v-select　v-if="isClicked"
+            :items="youbi"
             label="曜日を選択"
-            
+            dense
           ></v-select>
           <v-btn v-if="isClicked" v-on:click="addTasks">登録</v-btn>
         </v-col>
@@ -83,6 +84,7 @@ export default {
     group: null,
     inputName: '',
     inputYoubi: 0,
+    youbi: ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'],
   }),
   methods: {
     mouseClickHandler(){
