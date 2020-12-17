@@ -47,6 +47,9 @@ export default {
       });
       this.inputTitle = '';
       this.inputDetail = '';
+
+      // 通知のテスト
+      Push.create('タスクを作成しました！');
     },
   },
   computed: {
