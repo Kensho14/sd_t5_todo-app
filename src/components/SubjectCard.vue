@@ -1,7 +1,7 @@
 <template>
   <v-card :color="color" dark>
     <v-card-title class="headline" v-text="name"></v-card-title>
-    {{ youbi }}
+    {{ youbiText }}
     <v-card-actions>
       <v-btn>Edit</v-btn>
       <v-btn>Done</v-btn>
@@ -15,6 +15,11 @@ export default {
     color: String,
     name: String,
     youbi: Number,
+  },
+  computed: {
+    youbiText() {
+      return [ "日", "月", "火", "水", "木", "金", "土" ][this.youbi] ;
+    }
   }
 }
 </script>

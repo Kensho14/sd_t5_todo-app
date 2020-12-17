@@ -14,6 +14,7 @@ export default new Vuex.Store({
         desc: 'vue.jsを使いこなす。',
       }
     ],
+    
     subjectList: [
       {
         color: '#1F7087',
