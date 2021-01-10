@@ -30,11 +30,13 @@ export default new Vuex.Store({
         id:generateUuid(),
       }
     ],
+    
     subjectList: [
       {
         color: '#1F7087',
         name: 'OS',
-        youbi: 2  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
+        youbi: 2,  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
+        id:generateUuid(),
       }
     ]
   },
@@ -44,6 +46,7 @@ export default new Vuex.Store({
       state.tasks.push(task);
     },
     addSubject(state, subject){
+      subject['id'] = generateUuid();
       state.subjectList.push(subject);
     },
     // これはactionのloadStates用なので，他のところから呼び出すの禁止！
@@ -53,6 +56,9 @@ export default new Vuex.Store({
     },
     deleteTask(state, id){
       state.tasks = state.tasks.filter(x => x.id != id);
+    },
+    deleteSubject(state, id){
+      state.subjectList = state.subjectList.filter(x => x.id != id);
     },
   },
   actions: {
@@ -76,6 +82,10 @@ export default new Vuex.Store({
     },
     deleteTask({commit, dispatch}, id){
       commit('deleteTask', id);
+      dispatch('saveStates');
+    },
+    deleteSubject({commit, dispatch}, id){
+      commit('deleteSubject', id);
       dispatch('saveStates');
     },
   },
