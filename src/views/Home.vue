@@ -16,7 +16,7 @@
           :key="i"
           cols="12"
         >
-          <TaskCard :color="item.color" :title="item.title" :description="item.desc"></TaskCard>
+          <TaskCard :color="item.color" :title="item.title" :description="item.desc" :id="item.id"></TaskCard>
         </v-col>
       </v-row>
     </v-main>

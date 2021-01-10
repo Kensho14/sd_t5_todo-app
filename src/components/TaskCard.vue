@@ -3,8 +3,7 @@
     <v-card-title class="headline" v-text="title"></v-card-title>
     {{ description }}
     <v-card-actions>
-      <v-btn>Edit</v-btn>
-      <v-btn>Done</v-btn>
+      <v-btn v-on:click="deleteTask">Done</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -15,6 +14,12 @@ export default {
     color: String,
     title: String,
     description: String,
-  }
+    id: String,
+  },
+  methods: {
+    deleteTask(){
+      this.$store.dispatch('deleteTask', this.id)
+    },
+  },
 }
 </script>

@@ -10,7 +10,7 @@
                 flat
                 color="blue-grey"
                 dark
-              ><v-toolbar-title>教科カードを追加する＋</v-toolbar-title>
+              ><v-toolbar-title>教科を追加する＋</v-toolbar-title>
               </v-toolbar>
             </v-expansion-panel-header>
 
@@ -80,7 +80,7 @@
           :key="i"
           cols="12"
         >
-          <SubjectCard :color="item.color" :name="item.name" :youbi="item.youbi"></SubjectCard>
+          <SubjectCard :color="item.color" :name="item.name" :youbi="item.youbi" :id="item.id"></SubjectCard>
         </v-col>
       
     </v-main>
@@ -100,6 +100,7 @@ export default {
     inputColor: '',
     //youbiVal:0,
     inputYoubi: 0,
+    inputID: '',
     /*
     youbi: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']
     */
@@ -128,9 +129,11 @@ export default {
         color: this.inputColor,
         name: this.inputName,
         youbi: this.inputYoubi,
+        id: this.inputID,
       });
       this.inputName = '';
       this.inputYoubi = 0;
+      this.inputID = '';
     },
   },
   computed: {
