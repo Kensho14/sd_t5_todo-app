@@ -20,6 +20,8 @@ function generateUuid() {
   }
   return chars.join("");
 }
+
+
 export default new Vuex.Store({
   state: {
     tasks: [
@@ -61,7 +63,6 @@ export default new Vuex.Store({
     deleteSubject(state, id){
       state.subjectList = state.subjectList.filter(x => x.id != id);
     },
-
   },
   actions: {
     saveStates({state}){

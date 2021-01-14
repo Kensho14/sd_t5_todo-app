@@ -118,11 +118,7 @@ export default {
   
   methods: {
     mouseClickHandler(){
-      if(this.isClicked==false){
-        this.isClicked = true
-      }
-      else{this.isClicked = false}
-      
+      this.isClicked = !this.isClicked;
     },
     addSubject() {
       this.$store.dispatch('addSubject', {

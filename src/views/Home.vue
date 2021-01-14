@@ -8,7 +8,7 @@
           </v-text-field>
           <v-select　v-if="isClicked"
             label="科目を選択"
-            :items="$store.state.subjectList"
+            :items="subject"
             item-text="name"
             item-value="id"
             v-model="inputId"
@@ -59,20 +59,17 @@ export default {
       if(a.length == 1){
         return a[0];
       }else{
-        console.log('偽物');
-        return {
-        
-        }
+        console.error('教科データの取得に失敗しました！');
+        return {};
       }
     }
   },
   computed: {
     tasks() {
-      return this.$store.state.tasks  
+      return this.$store.state.tasks;
     },
-    
     subject() {
-      return this.$store.state.subjectList
+      return this.$store.state.subjectList;
     }
   },
 };
