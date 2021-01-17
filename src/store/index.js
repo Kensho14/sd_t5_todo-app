@@ -20,14 +20,17 @@ function generateUuid() {
   }
   return chars.join("");
 }
+
+
 export default new Vuex.Store({
   state: {
     tasks: [
       {
-        color: '#1F7087',
         title: 'ソフトウェア開発演習',
         desc: 'vue.jsを使いこなす。',
-        id:generateUuid(),
+        id:'c3a295c5-d1c2-4203-9346-488076c2b73e',
+        subjectId:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
+
       }
     ],
     
@@ -36,9 +39,9 @@ export default new Vuex.Store({
         color: '#1F7087',
         name: 'OS',
         youbi: 2,  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
-        id:generateUuid(),
+        id:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
       }
-    ]
+    ],
   },
   mutations: {
     addTask(state, task){

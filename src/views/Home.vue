@@ -8,6 +8,10 @@
           </v-text-field>
           <v-select　v-if="isClicked"
             label="科目を選択"
+            :items="subject"
+            item-text="name"
+            item-value="id"
+            v-model="inputId"
           ></v-select>
           <v-btn v-if="isClicked" v-on:click="addTasks">登録</v-btn>
         </v-col>
@@ -16,7 +20,7 @@
           :key="i"
           cols="12"
         >
-          <TaskCard :color="item.color" :title="item.title" :description="item.desc" :id="item.id"></TaskCard>
+          <TaskCard :color="getSubjectData(item.subjectId).color" :title="item.title" :description="item.desc" :id="item.id" :subjectName="getSubjectData(item.subjectId).name" :subjectYoubi="getSubjectData(item.subjectId).youbi"></TaskCard>
         </v-col>
       </v-row>
     </v-main>
@@ -34,6 +38,7 @@ export default {
     isClicked: false,
     inputTitle: '',
     inputDetail: '',
+    inputId: '',
   }),
   methods: {
     mouseClickHandler(){
@@ -41,20 +46,30 @@ export default {
     },
     addTasks() {
       this.$store.dispatch('addTask', {
-        color: '#1F7087',
+        subjectId: this.inputId,
         title: this.inputTitle,
         desc: this.inputDetail
       });
       this.inputTitle = '';
       this.inputDetail = '';
     },
+    getSubjectData(id) {
+      //console.log(this.subject.filter(x => x.id == id)[0]);
+      const a = this.subject.filter(x => x.id == id);
+      if(a.length == 1){
+        return a[0];
+      }else{
+        console.error('教科データの取得に失敗しました！');
+        return {};
+      }
+    }
   },
   computed: {
     tasks() {
-      return this.$store.state.tasks  
+      return this.$store.state.tasks;
     },
     subject() {
-      return this.$store.state.subject
+      return this.$store.state.subjectList;
     }
   },
 };
