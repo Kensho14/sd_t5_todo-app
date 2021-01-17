@@ -1,6 +1,6 @@
 <template>
   <v-container>
-  <v-card :color="color" height="100" dark>
+  <v-card :color="color" height="70" dark>
     <v-row syyle="height: 100x">
       <v-col cols="4" sm="4" md="4" lg="4" xl="4">
         <v-card-title class="headline">
