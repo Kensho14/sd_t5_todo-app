@@ -33,7 +33,6 @@ export default {
   components: {
     TaskCard,
   },
-
   data: () => ({
     isClicked: false,
     inputTitle: '',
@@ -52,12 +51,8 @@ export default {
       });
       this.inputTitle = '';
       this.inputDetail = '';
-
-      // 通知のテスト
-      Push.create('タスクを作成しました！');
     },
     getSubjectData(id) {
-      //console.log(this.subject.filter(x => x.id == id)[0]);
       const a = this.subject.filter(x => x.id == id);
       if(a.length == 1){
         return a[0];

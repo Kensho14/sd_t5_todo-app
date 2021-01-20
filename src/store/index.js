@@ -30,7 +30,6 @@ export default new Vuex.Store({
         desc: 'vue.jsを使いこなす。',
         id:'c3a295c5-d1c2-4203-9346-488076c2b73e',
         subjectId:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
-
       }
     ],
     subjectList: [
