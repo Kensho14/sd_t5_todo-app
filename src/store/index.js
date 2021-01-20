@@ -33,7 +33,6 @@ export default new Vuex.Store({
 
       }
     ],
-    
     subjectList: [
       {
         color: '#1F7087',
@@ -42,6 +41,8 @@ export default new Vuex.Store({
         id:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
       }
     ],
+    enableNotification: true,
+    notificationTime: '19:00'
   },
   mutations: {
     addTask(state, task){
@@ -56,6 +57,8 @@ export default new Vuex.Store({
     setState(state, data){
       state.tasks = data.tasks;
       state.subjectList = data.subjectList;
+      state.enableNotification = data.enableNotification;
+      state.notificationTime = data.notificationTime;
     },
     deleteTask(state, id){
       state.tasks = state.tasks.filter(x => x.id != id);
@@ -63,6 +66,12 @@ export default new Vuex.Store({
     deleteSubject(state, id){
       state.subjectList = state.subjectList.filter(x => x.id != id);
     },
+    setEnableNotification(state, enable){
+      state.enableNotification = enable;
+    },
+    setNotificationTime(state, timeText){
+      state.notificationTime = timeText;
+    }
   },
   actions: {
     saveStates({state}){
@@ -91,6 +100,14 @@ export default new Vuex.Store({
       commit('deleteSubject', id);
       dispatch('saveStates');
     },
+    setEnableNotification({commit, dispatch}, enable){
+      commit('setEnableNotification', enable);
+      dispatch('saveStates');
+    },
+    setNotificationTime({commit, dispatch}, timeText){
+      commit('setNotificationTime', timeText);
+      dispatch('saveStates');
+    }
   },
   modules: {
   }

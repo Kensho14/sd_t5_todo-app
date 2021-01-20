@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Subject from '../views/Subject.vue'
+import Settings from '../views/Settings.vue'
 
 Vue.use(VueRouter)
 
@@ -16,11 +17,11 @@ const routes = [
     name: 'Subjects',
     component: Subject
   },
-  // {
-  //   path: '/settings',
-  //   name: 'Settings',
-  //   component: Settings
-  // }
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
+  }
 ]
 
 const router = new VueRouter({
