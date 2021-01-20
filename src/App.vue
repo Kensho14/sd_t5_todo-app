@@ -28,9 +28,16 @@
 
         <v-list-item v-on:click="goPage('/subjects')">
           <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
+            <v-icon>mdi-book</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Subject</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item v-on:click="goPage('/settings')">
+          <v-list-item-icon>
+            <v-icon>mdi-cog</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Settings</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
