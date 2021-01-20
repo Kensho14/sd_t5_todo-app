@@ -20,23 +20,28 @@ function generateUuid() {
   }
   return chars.join("");
 }
+
+
 export default new Vuex.Store({
   state: {
     tasks: [
       {
-        color: '#1F7087',
         title: 'ソフトウェア開発演習',
         desc: 'vue.jsを使いこなす。',
-        id:generateUuid(),
+        id:'c3a295c5-d1c2-4203-9346-488076c2b73e',
+        subjectId:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
+
       }
     ],
+    
     subjectList: [
       {
         color: '#1F7087',
         name: 'OS',
-        youbi: 2  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
+        youbi: 2,  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
+        id:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
       }
-    ]
+    ],
   },
   mutations: {
     addTask(state, task){
@@ -44,6 +49,7 @@ export default new Vuex.Store({
       state.tasks.push(task);
     },
     addSubject(state, subject){
+      subject['id'] = generateUuid();
       state.subjectList.push(subject);
     },
     // これはactionのloadStates用なので，他のところから呼び出すの禁止！
@@ -53,6 +59,9 @@ export default new Vuex.Store({
     },
     deleteTask(state, id){
       state.tasks = state.tasks.filter(x => x.id != id);
+    },
+    deleteSubject(state, id){
+      state.subjectList = state.subjectList.filter(x => x.id != id);
     },
   },
   actions: {
@@ -76,6 +85,10 @@ export default new Vuex.Store({
     },
     deleteTask({commit, dispatch}, id){
       commit('deleteTask', id);
+      dispatch('saveStates');
+    },
+    deleteSubject({commit, dispatch}, id){
+      commit('deleteSubject', id);
       dispatch('saveStates');
     },
   },
