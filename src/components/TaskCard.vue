@@ -1,35 +1,41 @@
 <template>
-<<<<<<< HEAD
-  <v-row syyle="height: 100px" justify="center"> 
-    <v-col cols=11>
-        <v-card :color="color" dark>
-          <v-col cols=6>
-          <v-card-title class="headline" v-text="title"></v-card-title>
-          {{ description }}
+　<v-container fluid="true">
+  <v-card :color="color" dark>
+    <v-row no-gutters>
+      <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+        <v-card-title class="headline" v-text="title"></v-card-title>
+      </v-col>
+      <v-col cols="2" sm="2" md="2" lg="2" xl="2"></v-col>
+      <v-col cols="4" sm="4" md="4" lg="4" xl="4"
+        class="text-right">
+        <v-card-text>
+          <div>
+            <p class="font-weight-black">
+              {{youbiText}}：{{subjectName}}
+            </p>
+          </div>
+        </v-card-text>
+      </v-col>
+        <v-row>
+          <v-col>
+            <v-card-text>
+              <div>
+                <p class="font-weight-medium">
+                  {{ description }}
+                </p>
+              </div>
+            </v-card-text>
           </v-col>
           <v-card-actions>
-            <v-btn v-on:click="deleteTask">Done</v-btn>
+            <v-col class="text-right">
+              <v-btn v-on:click="deleteTask">完了</v-btn>
+            </v-col>
           </v-card-actions>
-=======
-  <v-row syyle="height: 90px" justify="center">
-    <v-col cols=11>
-      <v-card :color="color" dark>
-        <v-row syyle="height: 90px" justify="center">
-          <v-card-title class="headline" v-text="title"></v-card-title>
-          <v-col class="text-right">
-            {{youbiText}}：{{subjectName}}
-          </v-col>
         </v-row>
-        {{ description }}
-        <v-card-actions>
-          <v-col class="text-right">
-            <v-btn v-on:click="deleteTask">完了</v-btn>
-          </v-col>
-        </v-card-actions>
->>>>>>> 008b8c2431937ad19bd4e33cf464736e12a16b9b
-      </v-card>
-    </v-col>
-  </v-row>
+      </v-col>
+    </v-row>
+    </v-card>
+　</v-container>
 </template>
 
 <script>
