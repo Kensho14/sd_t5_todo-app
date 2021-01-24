@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid="true">
+  <v-container :fluid="true">
     <v-card :color="color" dark>
       <v-row align-content="center">
         <v-col cols="4" sm="4" md="4" lg="4" xl="4">
