@@ -56,6 +56,10 @@ export default {
   }),
   methods: {
     goPage(path){
+      if (this.$route.path === path){
+        console.log('current page');
+        return;
+      }
       console.log('go to '+path);
       this.$router.push({path: path});
     }
