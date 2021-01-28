@@ -18,7 +18,6 @@ export default {
       this.$store.dispatch('setNotificationTime', event.target.value);
     },
     clickBtn(){
-      console.log('click btn!');
       // 通知のテスト
       Push.create('通知のテスト！');
     }
