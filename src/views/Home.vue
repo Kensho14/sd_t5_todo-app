@@ -25,8 +25,9 @@
                 v-model="inputId"
               ></v-select>
                 </v-col>
-                <v-col>
-              <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
+                <v-col class="text-right">
+                    <v-btn v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
+                    <v-btn v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
                 </v-col>
               </v-row>
             </v-card-actions>
