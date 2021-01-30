@@ -1,13 +1,21 @@
 <template>    
     <v-main>
-          <v-text-field v-on:click="mouseClickHandler" label="教科を追加する＋" v-model="inputTitle">
-          </v-text-field>
-          
-          <v-text-field v-if="isClicked" label="教科名を入力" v-model="inputName">
-          </v-text-field>
-          <v-row>
-            <v-col cols="3">
-              <v-select　v-if="isClicked"
+      <v-row justify="center" >
+          <v-card 
+          :color="white"
+          height="10%"
+          width="90%"
+          >
+            <v-card-actions>
+              <v-row class="flex-column" align-content="center">
+                <v-col>
+              <v-text-field v-on:click="mouseClickHandler" label="教科を追加する＋" v-model="inputTitle"></v-text-field>
+                </v-col>
+                <c-col>
+                <v-text-field v-if="isClicked" label="教科名を入力" v-model="inputName"></v-text-field>
+                </c-col>
+                <v-col cols="3">
+                <v-select　v-if="isClicked"
                     label="曜日を選択"
                     :items="youbi"
                     item-text="name"
@@ -15,13 +23,10 @@
                     v-model="inputYoubi"
                     filled  
                     dense
-              ></v-select>
-            </v-col>
-          </v-row>
-
-          <v-row>
-            <v-col cols="3">
-              <v-menu v-if="isClicked" top :close-on-content-click="false">
+                ></v-select>
+                </v-col>
+                <v-col>
+                <v-menu v-if="isClicked" top :close-on-content-click="false">
                <template v-slot:activator="{ on, attrs }">
                 <v-textarea  
                   label="色を選択" 
@@ -44,12 +49,13 @@
                 hide-inputs
               ></v-color-picker>
               </v-menu>
-            </v-col>
-          </v-row>
-
-          <v-row
-            justify="end">
-            <v-btn v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
+                </v-col>
+                <v-row>
+                <v-btn v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
+                </v-row>
+              </v-row>
+            </v-card-actions>
+          </v-card>
           </v-row>
         <v-col
           v-for="(item, i) in subjects"
@@ -58,7 +64,6 @@
         >
           <SubjectCard :color="item.color" :name="item.name" :youbi="item.youbi" :id="item.id"></SubjectCard>
         </v-col>
-      
     </v-main>
 </template>
 

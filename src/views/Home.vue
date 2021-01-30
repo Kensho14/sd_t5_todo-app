@@ -2,22 +2,36 @@
     <v-main>
       <v-row dense>
         <v-col>
-          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle">
-          </v-text-field>
-
-          <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail">
-          </v-text-field>
-
-          <v-select　v-if="isClicked"
-            label="科目を選択"
-            :items="subject"
-            item-text="name"
-            item-value="id"
-            v-model="inputId"
-          ></v-select>
-
-          <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
-
+          <v-row justify="center" >
+          <v-card 
+          :color="white"
+          height="10%"
+          width="90%"
+          >
+            <v-card-actions>
+              <v-row class="flex-column" align-content="center">
+                <v-col>
+              <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle"></v-text-field>
+                </v-col>
+                <v-col>
+              <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail"></v-text-field>
+                </v-col>
+                <v-col>
+              <v-select　v-if="isClicked"
+                label="科目を選択"
+                :items="subject"
+                item-text="name"
+                item-value="id"
+                v-model="inputId"
+              ></v-select>
+                </v-col>
+                <v-col>
+              <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
+                </v-col>
+              </v-row>
+            </v-card-actions>
+          </v-card>
+          </v-row>
         </v-col>
         </v-row>
         <v-col
