@@ -1,22 +1,8 @@
 <template>
     <v-main>
-      <v-card width="70vw">
-        <v-expansion-panels>
-          <v-expansion-panel>
-            <v-expansion-panel-header hide-actions>
-              <v-toolbar
-                v-on:click="mouseClickopen"
-                flat
-                color="blue-grey"
-                dark
-              ><v-toolbar-title>タスクを入力＋</v-toolbar-title>
-              </v-toolbar>
-            </v-expansion-panel-header>
-            <v-card-text>
-              <v-expansion-panel-content>
       <v-row dense>
         <v-col>
-          <v-text-field v-if="isClicked" label="タスクを入力" v-model="inputTitle">
+          <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle">
           </v-text-field>
 
           <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail">
@@ -30,16 +16,10 @@
             v-model="inputId"
           ></v-select>
 
-          <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickclose()">登録</v-btn>
+          <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
 
         </v-col>
         </v-row>
-        </v-expansion-panel-content>
-
-      </v-card-text>
-      </v-expansion-panel>
-      </v-expansion-panels>
-        </v-card>
         <v-col
           v-for="(item, i) in tasks"
           :key="i"
@@ -64,11 +44,8 @@ export default {
     inputId: '',
   }),
   methods: {
-    mouseClickopen(){
-      this.isClicked = true;
-    },
-    mouseClickclose(){
-      this.isClicked = false;
+    mouseClickHandler(){
+      this.isClicked = !this.isClicked;
     },
     addTasks() {
       this.$store.dispatch('addTask', {
