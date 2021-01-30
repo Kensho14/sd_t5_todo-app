@@ -9,11 +9,8 @@
             <v-card-actions>
               <v-row class="flex-column" align-content="center">
                 <v-col>
-              <v-text-field v-on:click="mouseClickHandler" label="教科を追加する＋" v-model="inputTitle"></v-text-field>
+              <v-text-field v-on:click="mouseClickHandler" label="科目名を入力" v-model="inputName"></v-text-field>
                 </v-col>
-                <c-col>
-                <v-text-field v-if="isClicked" label="教科名を入力" v-model="inputName"></v-text-field>
-                </c-col>
                 <v-col cols="3">
                 <v-select　v-if="isClicked"
                     label="曜日を選択"
@@ -50,9 +47,9 @@
               ></v-color-picker>
               </v-menu>
                 </v-col>
-                <v-row>
+                <v-col>
                 <v-btn v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
-                </v-row>
+                </v-col>
               </v-row>
             </v-card-actions>
           </v-card>

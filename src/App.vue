@@ -11,8 +11,8 @@
     </v-app-bar>
 
     <v-navigation-drawer
+      position: fixed
       v-model="drawer"
-      absolute
       temporary
     >
       <v-list
