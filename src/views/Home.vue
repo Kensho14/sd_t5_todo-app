@@ -9,14 +9,10 @@
           width="90%"
           >
             <v-card-actions>
-              <v-row class="flex-column" align-content="center">
+              <v-row class="flex-column" align="center">
                 <v-col>
               <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle"></v-text-field>
-                </v-col>
-                <v-col>
               <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail"></v-text-field>
-                </v-col>
-                <v-col>
               <v-select　v-if="isClicked"
                 label="科目を選択"
                 :items="subject"
@@ -24,10 +20,9 @@
                 item-value="id"
                 v-model="inputId"
               ></v-select>
-                </v-col>
-                <v-col class="text-right">
-                    <v-btn v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
-                    <v-btn v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
+                    
                 </v-col>
               </v-row>
             </v-card-actions>
@@ -91,15 +86,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.v-card-actions{
-  text-align: center;
-}
-flex-column{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-</style>

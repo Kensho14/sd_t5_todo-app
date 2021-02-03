@@ -10,7 +10,8 @@
               <v-row class="flex-column" align-content="center">
                 <v-col>
               <v-text-field v-on:click="mouseClickHandler" label="科目名を入力" v-model="inputName"></v-text-field>
-                </v-col>
+                <!-- </v-col> -->
+                <!-- <v-col  -->
                 <v-col cols="4" sm="4" md="4" lg="4" xl="4">
                 <v-select　v-if="isClicked"
                     label="曜日を選択"
@@ -21,11 +22,11 @@
                     filled  
                     dense
                 ></v-select>
-                </v-col>
-                <v-col>
+                <!-- </v-col>
+                <v-col cols="4" sm="4" md="4" lg="4" xl="4"> -->
                 <v-menu v-if="isClicked" top :close-on-content-click="false">
                <template v-slot:activator="{ on, attrs }">
-                <v-textarea  
+                <v-textarea
                   label="色を選択" 
                   :background-color="inputColor"
                   auto-grow
@@ -36,7 +37,6 @@
                   readonly
                   v-bind="attrs"
                   v-on="on"
-                  
                 ></v-textarea>
               </template>
               <v-color-picker 
@@ -47,9 +47,10 @@
               ></v-color-picker>
               </v-menu>
                 </v-col>
-                  <v-col class="text-right">
-                    <v-btn v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
-                    <v-btn v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
+                <!-- </v-col> -->
+                <!-- <v-col> -->
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
                 </v-col>
               </v-row>
             </v-card-actions>
