@@ -2,14 +2,14 @@
     <v-main>
       <v-row justify="center" >
           <v-card 
-          :color="white"
+          color="white"
           height="10%"
           width="90%"
           >
             <v-card-actions>
               <v-row class="flex-column" align-content="center">
                 <v-col>
-              <v-text-field v-on:click="mouseClickHandler" label="科目名を入力" v-model="inputName"></v-text-field>
+              <v-text-field v-on:click="isClicked = true" label="科目名を入力" v-model="inputName"></v-text-field>
                 <!-- </v-col> -->
                 <!-- <v-col  -->
                 <v-col cols="4" sm="4" md="4" lg="4" xl="4">
@@ -49,8 +49,8 @@
                 </v-col>
                 <!-- </v-col> -->
                 <!-- <v-col> -->
-                  <v-btn class="float-right" v-if="isClicked" v-on:click="addSubject();mouseClickHandler()">登録</v-btn>
-                  <v-btn class="float-right" v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="addSubject()">登録</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="isClicked = false">閉じる</v-btn>
                 </v-col>
               </v-row>
             </v-card-actions>
@@ -97,9 +97,9 @@ export default {
   }),
   
   methods: {
-    mouseClickHandler(){
-      this.isClicked = !this.isClicked;
-    },
+    // mouseClickHandler(){
+    //   this.isClicked = !this.isClicked;
+    // },
     addSubject() {
       this.$store.dispatch('addSubject', {
         color: this.inputColor,

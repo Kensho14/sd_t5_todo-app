@@ -4,14 +4,14 @@
         <v-col>
           <v-row justify="center" >
           <v-card 
-          :color="white"
+          color="white"
           height="10%"
           width="90%"
           >
             <v-card-actions>
               <v-row class="flex-column" align="center">
                 <v-col>
-              <v-text-field v-on:click="mouseClickHandler" label="タスクを入力" v-model="inputTitle"></v-text-field>
+              <v-text-field v-on:click="isClicked = true" label="タスクを入力" v-model="inputTitle"></v-text-field>
               <v-text-field v-if="isClicked" label="タスク詳細" v-model="inputDetail"></v-text-field>
               <v-select　v-if="isClicked"
                 label="科目を選択"
@@ -20,8 +20,8 @@
                 item-value="id"
                 v-model="inputId"
               ></v-select>
-                  <v-btn class="float-right" v-if="isClicked" v-on:click="addTasks();mouseClickHandler()">登録</v-btn>
-                  <v-btn class="float-right" v-if="isClicked" v-on:click="mouseClickHandler()">閉じる</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="addTasks();">登録</v-btn>
+                  <v-btn class="float-right" v-if="isClicked" v-on:click="isClicked = false">閉じる</v-btn>
                     
                 </v-col>
               </v-row>
@@ -54,9 +54,9 @@ export default {
     inputId: '',
   }),
   methods: {
-    mouseClickHandler(){
-      this.isClicked = !this.isClicked;
-    },
+    // mouseClickHandler(){
+    //   this.isClicked = !this.isClicked;
+    // },
     addTasks() {
       this.$store.dispatch('addTask', {
         subjectId: this.inputId,
@@ -65,6 +65,7 @@ export default {
       });
       this.inputTitle = '';
       this.inputDetail = '';
+      this.isClicked = false;
     },
     getSubjectData(id) {
       const a = this.subject.filter(x => x.id == id);
