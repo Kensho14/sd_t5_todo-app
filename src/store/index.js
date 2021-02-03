@@ -26,8 +26,8 @@ export default new Vuex.Store({
   state: {
     tasks: [
       {
-        title: 'ソフトウェア開発演習',
-        desc: 'vue.jsを使いこなす。',
+        title: 'レポート5（例）',
+        desc: 'タスクの詳細。完了ボタンで消せます。',
         id:'c3a295c5-d1c2-4203-9346-488076c2b73e',
         subjectId:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
       }
@@ -35,7 +35,7 @@ export default new Vuex.Store({
     subjectList: [
       {
         color: '#1F7087',
-        name: 'OS',
+        name: 'サンプル教科名',
         youbi: 2,  // 数字で扱う（日曜＝０，月曜＝１，火曜＝２...）
         id:'8ee3d7bf-dbe6-45c6-b685-c1b4490e0fe8',
       }
