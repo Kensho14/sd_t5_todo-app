@@ -11,7 +11,7 @@
                 <v-col>
               <v-text-field v-on:click="mouseClickHandler" label="科目名を入力" v-model="inputName"></v-text-field>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="4" sm="4" md="4" lg="4" xl="4">
                 <v-select　v-if="isClicked"
                     label="曜日を選択"
                     :items="youbi"

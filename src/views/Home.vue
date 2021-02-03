@@ -91,3 +91,15 @@ export default {
   },
 };
 </script>
+
+<style>
+.v-card-actions{
+  text-align: center;
+}
+flex-column{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+</style>
